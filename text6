@@ -1,0 +1,31 @@
+//写代码可以在整型有序数组中查找想要的数字，找到了返回下标，找不到返回-1.（折半查找） 
+
+#include <stdio.h>
+int main ()
+{
+	int a[] = {1,2,3,4,5,6,7,8,9};
+	int left = 0;
+	int right = sizeof(a)/sizeof(a[0])-1;
+	int mid = 0;
+	int input = 0;
+	printf ("请输入你想查找的数字：\n");
+	scanf ("%d",&input);
+	while (left<=right)
+	{
+		mid = left+(right-left)/2;
+		if (input>a[mid])
+			left = mid + 1;
+		else if (input <a[mid])
+			right = mid - 1;
+		else 
+			break;
+		}
+
+        if (left>right)
+		printf ("找不到\n"); 
+		else 
+		printf ("找到了，下标为%d\n",mid);
+
+	
+	return 0;
+}
