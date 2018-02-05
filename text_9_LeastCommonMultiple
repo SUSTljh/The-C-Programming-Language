@@ -1,0 +1,28 @@
+//求两个整数的最小公倍数
+
+#include <stdio.h>
+
+int LeastCommonMultiple(int x,int y)
+{
+	int k,m; 
+	k = x % y;
+	m = x * y;
+
+	while (k)
+	{
+		x = y;
+		y = k;
+		k = x % y;
+	}
+	return m / y;
+}
+
+int main ()
+{
+	int x,y,z;
+	printf("请输入两个整数：");
+	scanf("%d%d",&x,&y);
+	z = LeastCommonMultiple(x,y);
+	printf("最小公倍数为：%d\n",z);
+	return 0;
+}
